@@ -1,0 +1,30 @@
+{
+  "name": "@enoveh/react-native-template",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "bin": {
+    "rt": "src/index.js"
+  },
+  "files": [
+    "src/"
+  ],
+  "author": "Ethan Lee",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "esm": "^3.2.25",
+    "execa": "^3.2.0",
+    "inquirer": "^7.0.0",
+    "listr": "^0.14.3",
+    "shelljs": "^0.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devethan/react-native-template"
+  },
+  "bugs": {
+    "url": "https://github.com/devethan/react-native-template/issues"
+  },
+  "homepage": "https://github.com/devethan/react-native-template#readme"
+}
