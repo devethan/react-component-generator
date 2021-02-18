@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { createProject } from "./createProject";
+import initProject from "./init";
 // import { createComponent } from "./createComponent";
 
 const parseArgs = (rawArgs) => {
@@ -24,7 +24,8 @@ const promptQuestions = async () => {
     {
       type: "input",
       name: "path",
-      message: "Please enter where you'll create component.(default: src/components)",
+      message:
+        "Please enter where you'll create component.(default: src/components)",
     },
   ];
 
@@ -40,7 +41,7 @@ export const cli = async (args) => {
   switch (action) {
     case "init":
       const options = await promptQuestions();
-      await createProject(options);
+      await initProject(options);
       break;
 
     // case "generate":
