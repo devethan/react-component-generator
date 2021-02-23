@@ -1,11 +1,13 @@
 export default (name) =>
   `import React, {FC} from 'react';
 
-import {View, Text} from 'react-native';
+import {Root} from './styles';
 
 interface IProps {}
 const ${name}: FC<IProps> = ({children}) => {
-  return <${name}>{children}</${name}>;
+  return (
+    <Root>{children}</Root>
+  );
 };
 
 export default ${name};`;

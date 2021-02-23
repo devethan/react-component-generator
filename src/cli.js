@@ -1,11 +1,15 @@
 import inquirer from "inquirer";
 import initProject from "./init";
-// import { createComponent } from "./createComponent";
+import { createComponent } from "./createComponent";
+
+const convCompName = (name) => {
+  return `${name[0].toUpperCase()}${name.slice(1)}`;
+};
 
 const parseArgs = (rawArgs) => {
   const firstArg = rawArgs[2] ? rawArgs[2].toLowerCase() : null;
-  const secondArg = rawArgs[3] ? rawArgs[3].toLowerCase() : null;
-  const thirdArg = rawArgs[4] ? rawArgs[4].split(" ")[0].trim() : null;
+  const secondArg = rawArgs[3] ? convCompName(rawArgs[3]) : null;
+
 
   const actionType = {
     init: "init",
@@ -14,7 +18,7 @@ const parseArgs = (rawArgs) => {
 
   return {
     action: actionType[firstArg] || null,
-    componentName: thirdArg,
+    componentName: secondArg,
   };
 };
 
@@ -44,9 +48,9 @@ export const cli = async (args) => {
       await initProject(options);
       break;
 
-    // case "generate":
-    //   createComponent(componentName);
-    //   break;
+    case "generate":
+      createComponent(componentName);
+      break;
 
     default:
       const help = `

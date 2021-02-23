@@ -1,6 +1,6 @@
 export default (name) =>
   `import {render} from '../../../utils/test-utils';
-import {${name}} from '.';
+import ${name} from './index';
 import React from 'react';
 
 describe('Render tests', () => {
