@@ -1,4 +1,4 @@
-# react-native-template
+# react-component-generator
 
 컴포넌트 생성 위치 설정, 템플릿 커스터마이징이 가능한 가벼운 템플릿 생성 CLI입니다.
 

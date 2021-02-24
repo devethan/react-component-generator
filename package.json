@@ -1,10 +1,10 @@
 {
-  "name": "@enoveh/react-native-template",
+  "name": "@enoveh/react-component-generator",
   "version": "0.0.1",
-  "description": "",
+  "description": "Component Generator for ReactJS, React-Native",
   "main": "src/index.js",
   "bin": {
-    "rt": "src/index.js"
+    "comgen": "src/index.js"
   },
   "files": [
     "src/"
@@ -21,10 +21,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/devethan/react-native-template"
+    "url": "https://github.com/devethan/react-component-generator"
   },
   "bugs": {
-    "url": "https://github.com/devethan/react-native-template/issues"
+    "url": "https://github.com/devethan/react-component-generator/issues"
   },
-  "homepage": "https://github.com/devethan/react-native-template#readme"
+  "homepage": "https://github.com/devethan/react-component-generator#readme"
 }

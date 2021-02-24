@@ -15,25 +15,25 @@ const createConfigFile = ({ path }) => {
   const data = configTemplate(targetPath);
   const isExistDir = shell.test(
     "-d",
-    `${process.cwd()}/.react-native-template`
+    `${process.cwd()}/.comgen`
   );
   if (isExistDir) throw new Error("already init on this project");
 
   shell.mkdir([
-    `${process.cwd()}/.react-native-template`,
-    `${process.cwd()}/.react-native-template/templates`,
+    `${process.cwd()}/.comgen`,
+    `${process.cwd()}/.comgen/templates`,
   ]);
-  writeFileSync(`${process.cwd()}/.react-native-template/config.json`, data);
+  writeFileSync(`${process.cwd()}/.comgen/config.json`, data);
   writeFileSync(
-    `${process.cwd()}/.react-native-template/templates/Component.tsx`,
+    `${process.cwd()}/.comgen/templates/Component.tsx`,
     componentTemplate(componentName)
   );
   writeFileSync(
-    `${process.cwd()}/.react-native-template/templates/Component.test.tsx`,
+    `${process.cwd()}/.comgen/templates/Component.test.tsx`,
     testTemplate(componentName)
   );
   writeFileSync(
-    `${process.cwd()}/.react-native-template/templates/styles.tsx`,
+    `${process.cwd()}/.comgen/templates/styles.tsx`,
     stylesTemplate()
   );
 };
@@ -42,7 +42,7 @@ export default async (options) => {
   try {
     const taskArr = [
       {
-        title: `Init react-native-template configuration`,
+        title: `Init comgen configuration`,
         task: () => createConfigFile(options),
       },
     ];
@@ -52,7 +52,7 @@ export default async (options) => {
     await tasks.run();
 
     console.log(
-      "%s 이제부터 react-native-template를 이용하실 수 있습니다!",
+      "%s 이제부터 comgen를 이용하실 수 있습니다!",
       chalk.green.bold("DONE")
     );
   } catch (error) {

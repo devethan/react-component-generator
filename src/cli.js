@@ -57,7 +57,7 @@ export const cli = async (args) => {
                 Welcome! 환영합니다!
 
                 이슈는 이곳에 남겨주세요.
-                https://github.com/devethan/react-native-template/issues
+                https://github.com/devethan/react-component-generator/issues
             `;
       console.log(help);
       break;

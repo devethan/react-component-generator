@@ -3,7 +3,7 @@ import chalk from "chalk";
 import { readFileSync } from "fs";
 
 const getConfig = () => {
-  const configPath = `${process.cwd()}/.react-native-template/config.json`;
+  const configPath = `${process.cwd()}/.comgen/config.json`;
   return JSON.parse(readFileSync(configPath).toString());
 };
 
@@ -23,7 +23,7 @@ export const createComponent = (compName) => {
 
     // Component
     shell.cp(
-      `${process.cwd()}/.react-native-template/templates/Component.tsx`,
+      `${process.cwd()}/.comgen/templates/Component.tsx`,
       `${compPath}/index.${fileExt}`
     );
     console.log(
@@ -32,7 +32,7 @@ export const createComponent = (compName) => {
     );
     // Test
     shell.cp(
-      `${process.cwd()}/.react-native-template/templates/Component.test.tsx`,
+      `${process.cwd()}/.comgen/templates/Component.test.tsx`,
       `${compPath}/${compName}.test.${fileExt}`
     );
     console.log(
@@ -41,7 +41,7 @@ export const createComponent = (compName) => {
     );
     // Styles
     shell.cp(
-      `${process.cwd()}/.react-native-template/templates/styles.tsx`,
+      `${process.cwd()}/.comgen/templates/styles.tsx`,
       `${compPath}/styles.${fileExt}`
     );
     console.log(
