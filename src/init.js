@@ -7,16 +7,14 @@ import {
   testTemplate,
   stylesTemplate,
   configTemplate,
+  typesTemplate,
 } from "./templates";
 
 const createConfigFile = ({ path }) => {
   const targetPath = path || "src/components";
   const componentName = "Component";
   const data = configTemplate(targetPath);
-  const isExistDir = shell.test(
-    "-d",
-    `${process.cwd()}/.comgen`
-  );
+  const isExistDir = shell.test("-d", `${process.cwd()}/.comgen`);
   if (isExistDir) throw new Error("already init on this project");
 
   shell.mkdir([
@@ -35,6 +33,10 @@ const createConfigFile = ({ path }) => {
   writeFileSync(
     `${process.cwd()}/.comgen/templates/styles.tsx`,
     stylesTemplate()
+  );
+  writeFileSync(
+    `${process.cwd()}/.comgen/templates/types.tsx`,
+    typesTemplate()
   );
 };
 

@@ -31,12 +31,13 @@ export const createComponent = (compName) => {
       chalk.green("CREATED")
     );
     // Test
+    shell.mkdir([`${compPath}/__tests__/`]);
     shell.cp(
       `${process.cwd()}/.comgen/templates/Component.test.tsx`,
-      `${compPath}/${compName}.test.${fileExt}`
+      `${compPath}/__tests__/${compName}.test.${fileExt}`
     );
     console.log(
-      chalk.blue(`${compName}/${compName}.test.${fileExt}`),
+      chalk.blue(`${compName}/__tests__/${compName}.test.${fileExt}`),
       chalk.green("CREATED")
     );
     // Styles
@@ -48,6 +49,12 @@ export const createComponent = (compName) => {
       chalk.blue(`${compName}/styles.${fileExt}`),
       chalk.green("CREATED")
     );
+    // Types
+    shell.cp(
+      `${process.cwd()}/.comgen/templates/types.tsx`,
+      `${compPath}/types.ts`
+    );
+    console.log(chalk.blue(`${compName}/types.ts`), chalk.green("CREATED"));
   } catch (error) {
     console.error(chalk.red(error.toSTring()));
   }
