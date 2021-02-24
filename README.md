@@ -6,9 +6,52 @@
 
 원하는 템플릿을 커스터 마이징 가능하도록 설정 파일로 분리했습니다.
 
+## Installation
+
+### Module install
+
+```sh
+# npm
+npm install @enoveh/react-component-generator
+
+# yarn
+yarn add -D @enoveh/react-component-generator
+```
+
+### Add script
+
+```json
+// package.json on rootDir
+{
+  "scripts": {
+    ...
+    "comgen-init": "comgen init",
+    "comgen-generate": "comgen generate",
+  }
+}
+```
+
+## Usages
+
+### Init
+
+```sh
+yarn run comgen-init
+```
+
+You can configure where the component will be generated. And then `.comgen` folder will be created on `<rootDir>`. This includes all of the comgen configurations.
+
+### Generate Component
+
+```sh
+yarn run comgen-generate <Component_name>
+```
+
+## Result
+
 ## TODO
 
-- 컴포넌트 이름을 생성될 파일에 주입
-- 예외처리
-- jsx, tsx 옵션 설정
-- CLI로 옵션 업데이트
+- Put in the name of component when the component generated
+- Error handling
+- Configure options for `jsx`, `tsx`
+- Setup options on CLI
