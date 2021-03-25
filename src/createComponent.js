@@ -1,6 +1,6 @@
 import shell from "shelljs";
 import chalk from "chalk";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 
 const getConfig = () => {
   const configPath = `${process.cwd()}/.comgen/config.json`;
@@ -22,19 +22,23 @@ export const createComponent = (compName) => {
     const fileExt = "tsx";
 
     // Component
-    shell.cp(
-      `${process.cwd()}/.comgen/templates/Component.tsx`,
-      `${compPath}/index.${fileExt}`
+    writeFileSync(
+      `${compPath}/index.${fileExt}`,
+      readFileSync(`${process.cwd()}/.comgen/templates/Component.tsx`)
+        .toString()
+        .replace(/Component/gi, compName)
     );
     console.log(
       chalk.blue(`${compName}/index.${fileExt}`),
-      chalk.green("CREATED")
+      chalk.green("CREATED!")
     );
     // Test
     shell.mkdir([`${compPath}/__tests__/`]);
-    shell.cp(
-      `${process.cwd()}/.comgen/templates/Component.test.tsx`,
-      `${compPath}/__tests__/${compName}.test.${fileExt}`
+    writeFileSync(
+      `${compPath}/__tests__/${compName}.test.${fileExt}`,
+      readFileSync(`${process.cwd()}/.comgen/templates/Component.test.tsx`)
+        .toString()
+        .replace(/Component/gi, compName)
     );
     console.log(
       chalk.blue(`${compName}/__tests__/${compName}.test.${fileExt}`),
