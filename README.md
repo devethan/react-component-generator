@@ -72,7 +72,7 @@ You want to change the file structure? All you have to do is change the code.
 
 ## TODO
 
-- Put in the name of component when the component generated
+- [x] Put in the name of component when the component generated
 - Error handling
 - Configure options for `jsx`, `tsx`
 - Setup options on CLI
