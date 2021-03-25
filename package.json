@@ -1,6 +1,6 @@
 {
   "name": "@enoveh/react-component-generator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Component Generator for ReactJS, React-Native",
   "main": "src/index.js",
   "bin": {
