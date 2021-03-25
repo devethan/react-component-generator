@@ -1,10 +1,8 @@
 # react-component-generator
 
-컴포넌트 생성 위치 설정, 템플릿 커스터마이징이 가능한 가벼운 템플릿 생성 CLI입니다.
+Customized component template generator for React-native. (ReactJS will also be added)
 
-컴포넌트 생성과 함께 테스트 파일과 스타일 파일을 페어로 생성합니다.
-
-원하는 템플릿을 커스터 마이징 가능하도록 설정 파일로 분리했습니다.
+Once setup this module on your project, you can easily add a component that follow your specific guideline. 👍
 
 ## Installation
 
@@ -24,9 +22,8 @@ yarn add -D @enoveh/react-component-generator
 // package.json on rootDir
 {
   "scripts": {
-    ...
     "comgen-init": "comgen init",
-    "comgen-generate": "comgen generate",
+    "comgen-generate": "comgen generate"
   }
 }
 ```
@@ -39,7 +36,17 @@ yarn add -D @enoveh/react-component-generator
 yarn run comgen-init
 ```
 
-You can configure where the component will be generated. And then `.comgen` folder will be created on `<rootDir>`. This includes all of the comgen configurations.
+You can configure where the component will be generated. And then `.comgen` folder will be created on `<rootDir>`. This includes all of the `.comgen` configurations following below structure.
+
+```text
+.comgen/
+├─ templates // each properties presents thier template
+│  └─ Component.tsx
+│  └─ Component.test.tsx
+│  └─ styles.tsx
+│  └─ types.ts
+└─ config.json
+```
 
 ### Generate Component
 
@@ -47,7 +54,21 @@ You can configure where the component will be generated. And then `.comgen` fold
 yarn run comgen-generate <Component_name>
 ```
 
+Just executes above command, it can generate all of files of the component to the location that you've specified.
+
+You want to change the file structure? All you have to do is change the code.
+
 ## Result
+
+```text
+<specified_component_root_loc> // default as src/components
+├─ __tests__
+│  └─ Component.test.tsx
+├─ index.tsx
+├─ styles.tsx
+├─ types.ts
+└─ config.json
+```
 
 ## TODO
 
