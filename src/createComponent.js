@@ -26,7 +26,7 @@ export const createComponent = (compName) => {
       `${compPath}/index.${fileExt}`,
       readFileSync(`${process.cwd()}/.comgen/templates/Component.tsx`)
         .toString()
-        .replace(/Component/gi, compName)
+        .replace(/\bComponent\b/g, compName)
     );
     console.log(
       chalk.blue(`${compName}/index.${fileExt}`),
@@ -38,7 +38,7 @@ export const createComponent = (compName) => {
       `${compPath}/__tests__/${compName}.test.${fileExt}`,
       readFileSync(`${process.cwd()}/.comgen/templates/Component.test.tsx`)
         .toString()
-        .replace(/Component/gi, compName)
+        .replace(/\bComponent\b/g, compName)
     );
     console.log(
       chalk.blue(`${compName}/__tests__/${compName}.test.${fileExt}`),
