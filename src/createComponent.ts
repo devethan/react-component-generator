@@ -7,13 +7,13 @@ const getConfig = () => {
   return JSON.parse(readFileSync(configPath).toString());
 };
 
-export const createComponent = (compName) => {
+export const createComponent = (compName: string): void => {
   try {
     const appConfig = getConfig();
 
     const { path } = appConfig;
 
-    let compPath = `${process.cwd()}/${path.components}/${compName}`;
+    const compPath = `${process.cwd()}/${path.components}/${compName}`;
 
     if (shell.test("-d", compPath)) throw new Error("already exist");
 
