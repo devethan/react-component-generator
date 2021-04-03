@@ -14,7 +14,7 @@ const convCompName = (name: string): string => {
 const parseArgs = (
   rawArgs: string[]
 ): { action: string; componentName: string } => {
-  const firstArg = rawArgs[2]?.toLowerCase() ?? "";
+  const firstArg = rawArgs[2] ? rawArgs[2].toLowerCase() : "";
   const secondArg = rawArgs[3] ? convCompName(rawArgs[3]) : "";
 
   return {
