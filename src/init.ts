@@ -10,7 +10,7 @@ import {
   typesTemplate,
 } from "./templates";
 
-const createConfigFile = ({ path }) => {
+const createConfigFile = ({ path }: { path: string }) => {
   const targetPath = path || "src/components";
   const componentName = "Component";
   const data = configTemplate(targetPath);
@@ -40,7 +40,7 @@ const createConfigFile = ({ path }) => {
   );
 };
 
-export default async (options) => {
+export default async (options: { path: string }): Promise<boolean> => {
   try {
     const taskArr = [
       {

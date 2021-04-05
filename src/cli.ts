@@ -2,22 +2,23 @@ import inquirer from "inquirer";
 import initProject from "./init";
 import { createComponent } from "./createComponent";
 
-const convCompName = (name) => {
+const actions = {
+  init: "init",
+  generate: "generate",
+};
+
+const convCompName = (name: string): string => {
   return `${name[0].toUpperCase()}${name.slice(1)}`;
 };
 
-const parseArgs = (rawArgs) => {
-  const firstArg = rawArgs[2] ? rawArgs[2].toLowerCase() : null;
-  const secondArg = rawArgs[3] ? convCompName(rawArgs[3]) : null;
-
-
-  const actionType = {
-    init: "init",
-    generate: "generate",
-  };
+const parseArgs = (
+  rawArgs: string[]
+): { action: string; componentName: string } => {
+  const firstArg = rawArgs[2] ? rawArgs[2].toLowerCase() : "";
+  const secondArg = rawArgs[3] ? convCompName(rawArgs[3]) : "";
 
   return {
-    action: actionType[firstArg] || null,
+    action: firstArg,
     componentName: secondArg,
   };
 };
@@ -34,25 +35,25 @@ const promptQuestions = async () => {
   ];
 
   const answers = await inquirer.prompt(questions);
-  const projectOptions = {};
-  projectOptions.path = answers.path;
-  return projectOptions;
+
+  console.log(answers);
+
+  return { path: answers.path };
 };
 
-export const cli = async (args) => {
-  let { action, componentName } = parseArgs(args);
+export const cli = async (args: string[]): Promise<void> => {
+  const { action, componentName } = parseArgs(args);
 
   switch (action) {
-    case "init":
+    case actions.init: {
       const options = await promptQuestions();
       await initProject(options);
       break;
-
-    case "generate":
+    }
+    case actions.generate:
       createComponent(componentName);
       break;
-
-    default:
+    default: {
       const help = `
                 Welcome! 환영합니다!
 
@@ -61,5 +62,6 @@ export const cli = async (args) => {
             `;
       console.log(help);
       break;
+    }
   }
 };

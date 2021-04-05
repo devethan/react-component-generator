@@ -1,4 +1,4 @@
-export default (name) =>
+export default (name: string): string =>
   `import React, {FC} from 'react';
 import {IProps} from './types';
 import {Root} from './styles';

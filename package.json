@@ -2,15 +2,30 @@
   "name": "@enoveh/react-component-generator",
   "version": "0.0.3",
   "description": "Component Generator for ReactJS, React-Native",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
-    "comgen": "src/index.js"
+    "comgen": "dist/index.js"
   },
-  "files": [
-    "src/"
-  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
   "author": "Ethan Lee",
   "license": "MIT",
+  "devDependencies": {
+    "@types/esm": "^3.2.0",
+    "@types/inquirer": "^7.3.1",
+    "@types/listr": "^0.14.2",
+    "@types/shelljs": "^0.8.8",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "2.2.1",
+    "typescript": "^4.2.3"
+  },
   "dependencies": {
     "chalk": "^2.4.2",
     "esm": "^3.2.25",

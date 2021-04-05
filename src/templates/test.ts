@@ -1,4 +1,4 @@
-export default (name) =>
+export default (name: string): string =>
   `import {render} from '../../../utils/test-utils';
 import ${name} from './index';
 import React from 'react';
